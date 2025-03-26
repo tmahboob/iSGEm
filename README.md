@@ -4,6 +4,15 @@ Contributor:
 - Dr. Tahira Mahboob
 - University of Glasgow March 2025
 
+# Experimentation:
+- Run the broker agent at the command line: python3 broker_agent.py
+- Run the mininet topology: python3 3sw_ctopo.py
+- xterm on host: xterm h1
+- setup wireshark on host interface
+- Run: ./IEC61850-1.5.1 *.csv % GOOSE traffic
+  Observe command line to view parsed traffic and execution times
+- Run: MetricsExtractor.csv %extract machine learning metrics
+
 An intelligent programmable data plane leveraging BPFabric
 
 Follow first example: A machine learning based FDI detection and mitigation on GOOSE traffic in IEC 61850 Digital secondary substation environment
