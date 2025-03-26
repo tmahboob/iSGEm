@@ -1,8 +1,8 @@
 
 # iSGEm - NetLab
 Contributor:
-Dr. Tahira Mahboob
-University of Glasgow March 2025
+- Dr. Tahira Mahboob
+- University of Glasgow March 2025
 
 An intelligent programmable data plane leveraging BPFabric
 
