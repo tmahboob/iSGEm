@@ -1,3 +1,5 @@
+######## Contributor: Dr. Tahira Mahboob, NetLab, University of Glasgow, UK #######
+####### Code: Topology of Digital secondary substation ##############
 #!/usr/bin/env python
 
 from mininet.net import Mininet
