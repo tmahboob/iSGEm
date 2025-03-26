@@ -13,7 +13,7 @@ Contributor:
   Observe command line to view parsed traffic and execution times
 - Run: MetricsExtractor.csv %extract machine learning metrics
   
-![Experimental Setup](https://github.com/tmahboob/iSGEm/edit/main/experimentalsetup.jpeg)
+![Experimental Setup](https://github.com/tmahboob/iSGEm/edit/main/experimentalsetup.jpg)
 An intelligent programmable data plane leveraging BPFabric
 
 Follow first example: A machine learning based FDI detection and mitigation on GOOSE traffic in IEC 61850 Digital secondary substation environment
