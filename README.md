@@ -21,7 +21,7 @@ Follow first example: A machine learning based FDI detection and mitigation on G
 # Example: ML micro functions added in folder "examples"
 -     eBPF--based Decision Tree mitigator micro service
 -     eBPF--based Random Forest detection micro service
-- 
+  
 # Example: Broker agent at "\controller\core" folder
 -    Userspace based FDI detection using Decision Tree and Random Forest 
 
