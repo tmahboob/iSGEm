@@ -1,3 +1,8 @@
+######## Contributor: Dr. Tahira Mahboob, NetLab, University of Glasgow, UK #######
+####### Code: IEC61850-1.5.1 traffic genarator (GOOSE publisher). Extracting data from csv file.
+####### Embed the data as payload  
+
+
 #include <stdint.h>
 #include <stdlib.h>
 #include <string.h>
