@@ -19,8 +19,8 @@ An intelligent programmable data plane leveraging BPFabric
 
 Follow first example: A machine learning based FDI detection and mitigation on GOOSE traffic in IEC 61850 Digital secondary substation environment
 # Example: ML micro functions added in folder "examples"
--     eBPF--based Decision Tree mitigator micro service
--     eBPF--based Random Forest detection micro service
+-     eBPF-based Decision Tree mitigator micro service
+-     eBPF-based Random Forest detection micro service
   
 # Example: Broker agent at "\controller\core" folder
 -    Userspace based FDI detection using Decision Tree and Random Forest 
