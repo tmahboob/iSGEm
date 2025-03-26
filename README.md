@@ -12,7 +12,8 @@ Contributor:
 - Run: ./IEC61850-1.5.1 *.csv % GOOSE traffic
   Observe command line to view parsed traffic and execution times
 - Run: MetricsExtractor.csv %extract machine learning metrics
-![Experimental Setup](experimentalsetup.png)
+  
+![Experimental Setup](https://github.com/tmahboob/iSGEm/edit/main/experimentalsetup.png)
 An intelligent programmable data plane leveraging BPFabric
 
 Follow first example: A machine learning based FDI detection and mitigation on GOOSE traffic in IEC 61850 Digital secondary substation environment
