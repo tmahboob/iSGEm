@@ -1,3 +1,6 @@
+######## Contributor: Dr. Tahira Mahboob, NetLab, University of Glasgow, UK #######
+####### Code: Broker agent ##############
+
 #!/usr/bin/env python
 import cmd
 import os
