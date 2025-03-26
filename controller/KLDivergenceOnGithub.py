@@ -1,3 +1,5 @@
+######## Contributor: Dr. Tahira Mahboob, NetLab, University of Glasgow, UK #######
+####### Code: Estimating optimal alpha per feature in a dataset ##############
 import numpy as np
 import pandas as pd
 from scipy.stats import entropy
