@@ -40,8 +40,10 @@ from core.packets import *
 
 # The intro message to show at the top when running the program
 banner = "-" * 80 + """
-    eBPF Switch Controller Command Line Interface - Netlab 2024
-    Simon Jouet <simon.jouet@gmail.com> - University of Glasgow
+    eBPF Switch Controller Command Line Interface - Netlab 2025
+    Simon Jouet <simon.jouet@gmail.com> - University of Glasgow 
+    iSGEm Intelligent Smart Grid Emulator - Netlab 2025
+    Tahira Mahboob <tahira.mahboob@yahoo.com> - University of Glasgow
 """ + '-' * 80 + '\n'
 
 def tabulate(rows, headers=None):
