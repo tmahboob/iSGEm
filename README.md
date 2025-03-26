@@ -1,4 +1,9 @@
+#########################################
 # iSGEm - NetLab
+Contributor:
+Dr. Tahira Mahboob
+University of Glasgow March 2025
+#########################################
 An intelligent programmable data plane leveraging BPFabric
 
 Follow first example: A machine learning based FDI detection and mitigation on GOOSE traffic in IEC 61850 Digital secondary substation environment
