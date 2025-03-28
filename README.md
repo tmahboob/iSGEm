@@ -63,7 +63,7 @@ sudo ./3sw_topo.py
 cd controller
 ./cli.py
 --------------------------------------------------------------------------------
-    eBPF Switch Controller Command Line Interface - Netlab 2016
+    eBPF Switch Controller Command Line Interface - Netlab 2025
     Simon Jouet <simon.jouet@glasgow.ac.uk> - University of Glasgow
 --------------------------------------------------------------------------------
 
