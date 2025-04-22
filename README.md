@@ -1,7 +1,7 @@
 
 # iSGEm - NetLab
 Contributor:
-- Dr. Tahira Mahboob
+- Dr. Tahira Mahboob (tahira.mahboob@glasgow.ac.uk)
 - University of Glasgow March 2025
 
 # Experimentation:
