@@ -210,7 +210,8 @@ implemented at the RYU controller
 2.4. Detect FDI on batch of packets
 2.5. Return Classification label '1' attack, '0' normal
 3. Drop packets at controller if label '1' otherwise packet_out packets via out_port ethernet port  
-======================================================================================================================================
+*********************************************************************************
+
 # Setting up ovs rules at the switch
 * Experiment
 ethstats -n 2
@@ -237,17 +238,18 @@ ryu-manager fdi_switch.py
 
 More details about installation: https://heltale.com/sdn/setting_up_ryu/ 
 
-***************END: SDN RYU controller experiment******************************************************************************************
+***************END: SDN RYU controller experiment********************************
 
+*********************************************************************************
 
-############################################################################################################################################
 
 # Experiment2: FDI detection on GOOSE 61850 measurements June 19, 2025 update 
 
-Cite: Tahira Mahboob, Filip Holik, Awais Aziz Shah, and Dimitrios Pezaros, "Adaptive Learning Feature Quantization for In-network 
+# Cite: Tahira Mahboob, Filip Holik, Awais Aziz Shah, and Dimitrios Pezaros, "Adaptive Learning Feature Quantization for In-network 
 FDI Detection in IEC 61850 Digital Substations", https://eprints.gla.ac.uk/358810/, SmartGridComm'25 conference, Sep 29-Oct 2, 2025 Canada.
 
-################################################################################################################################################
+
+
 * configuration: GOOSE publisher VM on laptop(enp4s0), GOOSE subscriber raspberry_pi1(enp2s0), CPN node (controller, scripts,
  uNFs installed on switch,ebpf functions on dataplane processing pipeline)
 
@@ -256,7 +258,8 @@ FDI Detection in IEC 61850 Digital Substations", https://eprints.gla.ac.uk/35881
 kernel 6.8.0-60-generic 
 *clang ver 18.1.3 thread posix -python 3.12.3 
 %use sudo for wireshark and commands, su not supported
-========================================================================================================================================
+*********************************************************************************
+
 
 //--- Softswitch initialization
 sudo ~/BPFabric/softswitch/softswitch --dpid=1 --controller="127.0.0.1:9000" --promiscuous enp2s0 enp3s0 enp4s0
