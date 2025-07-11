@@ -8,7 +8,7 @@ Contributor:
 
 
 ************************************************************************************
-//Experiment1: FDI detection on Power Systems State Estimations on Smart Grids
+# Experiment1: FDI detection on Power Systems State Estimations on Smart Grids
 
 *************************************************************************************
 CONTRIBUTIONS:
@@ -78,7 +78,7 @@ sudo /myenv/bin/python Modbus_server3.py
 
 
 ************************************************************************************
-#//Experiment 2: FDI detection on GOOSE 61850 measurements
+# Experiment 2: FDI detection on GOOSE 61850 measurements
 June 19, 2025 update
 Cite: Tahira Mahboob, Filip Holik, Awais Aziz Shah, and Dimitrios Pezaros, "Adaptive Learning Feature Quantization for In-network FDI Detection in IEC 61850 Digital Substations", accepted for publication, SmartGridComm'25 conference, Sep 29-Oct 2, 2025 Canada.
 ************************************************************************************
@@ -136,7 +136,7 @@ Main BPFabric guide (https://github.com/UofG-netlab/BPFabric/wiki/Running%20BPFa
 Contributor: Dr. Tahira Mahboob, tahira.mahboob@yahoo.com University of Glasgow, Scotland, UK
 
 ******************************************************************************
-//Experiment1: FDI detection on Power Systems State Estimations on Smart Grids
+//Experiment 3: FDI detection on Power Systems State Estimations on Smart Grids
 ******************************************************************************
 
 
@@ -197,7 +197,7 @@ python -m venv myenv source myenv/bin/activate sudo /myenv/bin/python Modbus_ser
 
 ******************************************************************************
 
-SDN experiment: Setting up RYU controller, where all Modbus TCP traffic forwarded to 
+SDN experiment 4: Setting up RYU controller, where all Modbus TCP traffic forwarded to 
 the controller via openflow rules set up FDI detection and then mitigation logic 
 implemented at the RYU controller
 ******************************************************************************
@@ -242,8 +242,7 @@ More details about installation: https://heltale.com/sdn/setting_up_ryu/
 
 *********************************************************************************
 
-
-# Experiment2: FDI detection on GOOSE 61850 measurements June 19, 2025 update 
+# Experiment: FDI detection on GOOSE 61850 measurements June 19, 2025 update 
 
 # Cite: Tahira Mahboob, Filip Holik, Awais Aziz Shah, and Dimitrios Pezaros, "Adaptive Learning Feature Quantization for In-network 
 FDI Detection in IEC 61850 Digital Substations", https://eprints.gla.ac.uk/358810/, SmartGridComm'25 conference, Sep 29-Oct 2, 2025 Canada.
