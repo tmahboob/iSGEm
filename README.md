@@ -78,9 +78,10 @@ sudo /myenv/bin/python Modbus_server3.py
 
 
 ************************************************************************************
-# Experiment 2: FDI detection on GOOSE 61850 measurements
-June 19, 2025 update
-Cite: Tahira Mahboob, Filip Holik, Awais Aziz Shah, and Dimitrios Pezaros, "Adaptive Learning Feature Quantization for In-network FDI Detection in IEC 61850 Digital Substations", accepted for publication, SmartGridComm'25 conference, Sep 29-Oct 2, 2025 Canada.
+## Experiment 2: FDI detection on GOOSE 61850 measurements
+
+## June 19, 2025 update
+* Cite: Tahira Mahboob, Filip Holik, Awais Aziz Shah, and Dimitrios Pezaros, "Adaptive Learning Feature Quantization for In-network FDI Detection in IEC 61850 Digital Substations", accepted for publication, SmartGridComm'25 conference, Sep 29-Oct 2, 2025 Canada.
 ************************************************************************************
 //configuration: GOOSE publisher VM on laptop(enp4s0), GOOSE subscriber raspberry_pi1(enp2s0), CPN node (controller, scripts, uNFs installed on switch,ebpf functions on dataplane processing pipeline)
 
