@@ -12,7 +12,7 @@ Contributor:
 
 *************************************************************************************
 CONTRIBUTIONS:
-=====================================================================================
+
 * Modbus TCP client/server traffic simulation, read multiple registers
 * Industrial commodity hardware--based test setup
 * Modelling a statistical FDI attack on PSSE
@@ -22,7 +22,7 @@ CONTRIBUTIONS:
 * LSTM Encoder Decoder implementation
 * FDI mitigation on PSSE
 * Non-eBPF and eBPF function chaining
-* =========================================================================================
+
 
 //configuration: Modbus TCP server on raspberry_pi1(enp2s0),  Modbus TCP client on raspberry_pi2(enp3s0), CPN node (controller, scripts, uNFs installed on switch, non-ebpf function on dataplane processing pipeline)
 
