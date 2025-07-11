@@ -27,16 +27,16 @@ CONTRIBUTIONS:
 //configuration: Modbus TCP server on raspberry_pi1(enp2s0),  Modbus TCP client on raspberry_pi2(enp3s0), CPN node (controller, scripts, uNFs installed on switch, non-ebpf function on dataplane processing pipeline)
 
 //Requirements:
--Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic
--clang ver 18.1.3 thread posix
--python 3.12.3
-%use sudo for wireshark and commands, su not supported
+*Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic
+*clang ver 18.1.3 thread posix
+*python 3.12.3
+*use sudo for wireshark and commands, su not supported
 
--pip install vmdpy or GitHub lone https://github.com/vrcarv/vmdpy.git
+*pip install vmdpy or GitHub lone https://github.com/vrcarv/vmdpy.git
 % may need to run in virtual environment and file vmdp.py file in project folder where sniffer/modbusparser/fdi detection scripts are placed
 
--pip install tensorflow
--pip install scikit-learn
+*pip install tensorflow
+*pip install scikit-learn
 
 1. Run the simulation to generate system state [V_b, I_b]
 
@@ -135,9 +135,10 @@ Main BPFabric guide (https://github.com/UofG-netlab/BPFabric/wiki/Running%20BPFa
 
 Contributor: Dr. Tahira Mahboob, tahira.mahboob@yahoo.com University of Glasgow, Scotland, UK
 
-######################################################################################################################################
+******************************************************************************
 //Experiment1: FDI detection on Power Systems State Estimations on Smart Grids
-######################################################################################################################################
+******************************************************************************
+
 
 CONTRIBUTIONS:
 #Modbus TCP client/server traffic simulation, read multiple registers
@@ -149,7 +150,8 @@ CONTRIBUTIONS:
 #LSTM Encoder Decoder implementation
 #FDI mitigation on PSSE
 #Non-eBPF and eBPF function chaining
-========================================================================================================================================
+******************************************************************************
+
 //configuration: Modbus TCP server on raspberry_pi1(enp2s0), Modbus TCP client on raspberry_pi2(enp3s0), CPN node (controller, scripts, uNFs installed on switch, non-ebpf function on dataplane processing pipeline)
 
 //Requirements: -Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic -clang ver 18.1.3 thread posix -python 3.12.3 %use sudo for wireshark and commands, su not supported
@@ -189,14 +191,17 @@ sudo /myenv/bin/python Modbus_fwd_parser_fdi.py
 #Execute code on the raspberry_pi2 setup virtual environment on raspberry pi: 
 python -m venv myenv source myenv/bin/activate sudo /myenv/bin/python Modbus_server3.py
 
-*********************************************************END: BPFabric eBPF Modbus experiment****************************************
+********************END: BPFabric eBPF Modbus experiment**********************
 
 
 
-######################################################################################################################################
-SDN experiment: Setting up RYU controller, where all Modbus TCP traffic forwarded to the controller via openflow rules set up
-FDI detection and then mitigation logic implemented at the RYU controller
-######################################################################################################################################
+******************************************************************************
+
+SDN experiment: Setting up RYU controller, where all Modbus TCP traffic forwarded to 
+the controller via openflow rules set up FDI detection and then mitigation logic 
+implemented at the RYU controller
+******************************************************************************
+
 1. PacketIn from switch to controller
 2. Call FDI script
 2.1. Parse packets to extract feature using scapy
@@ -207,10 +212,10 @@ FDI detection and then mitigation logic implemented at the RYU controller
 3. Drop packets at controller if label '1' otherwise packet_out packets via out_port ethernet port  
 ======================================================================================================================================
 # Setting up ovs rules at the switch
-//--- Experiment
+* Experiment
 ethstats -n 2
 
-//--- Open vSwitch
+* Open vSwitch
 sudo ovs-vsctl show
 ip link show
 
@@ -224,7 +229,7 @@ sudo ip link set dev enp3s0 up
 sudo ovs-vsctl set-controller br0 tcp:192.168.10.1:6633
 (the switch is configured with 192.168.10.2) 
 
-//--- RYU SDN Controller
+*RYU SDN Controller
 pyenv activate ryu
 cd /home/otsentry/ryu/ryu/app/
 ryu-manager fdi_switch.py
@@ -237,29 +242,29 @@ More details about installation: https://heltale.com/sdn/setting_up_ryu/
 
 ############################################################################################################################################
 
-#//Experiment2: FDI detection on GOOSE 61850 measurements June 19, 2025 update 
+# Experiment2: FDI detection on GOOSE 61850 measurements June 19, 2025 update 
 
 Cite: Tahira Mahboob, Filip Holik, Awais Aziz Shah, and Dimitrios Pezaros, "Adaptive Learning Feature Quantization for In-network 
 FDI Detection in IEC 61850 Digital Substations", https://eprints.gla.ac.uk/358810/, SmartGridComm'25 conference, Sep 29-Oct 2, 2025 Canada.
 
 ################################################################################################################################################
-#//configuration: GOOSE publisher VM on laptop(enp4s0), GOOSE subscriber raspberry_pi1(enp2s0), CPN node (controller, scripts,
+* configuration: GOOSE publisher VM on laptop(enp4s0), GOOSE subscriber raspberry_pi1(enp2s0), CPN node (controller, scripts,
  uNFs installed on switch,ebpf functions on dataplane processing pipeline)
 
-#//Requirements: 
--Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN node 
+//--- Requirements: 
+*Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN node 
 kernel 6.8.0-60-generic 
--clang ver 18.1.3 thread posix -python 3.12.3 
+*clang ver 18.1.3 thread posix -python 3.12.3 
 %use sudo for wireshark and commands, su not supported
 ========================================================================================================================================
 
-#//--- Softswitch initialization
+//--- Softswitch initialization
 sudo ~/BPFabric/softswitch/softswitch --dpid=1 --controller="127.0.0.1:9000" --promiscuous enp2s0 enp3s0 enp4s0
 
-#// --- Controller ~/BPFabric/controller/cli.py 1 add 0 FDI ../examples/fdiDT.o 
+//--- Controller ~/BPFabric/controller/cli.py 1 add 0 FDI ../examples/fdiDT.o 
 %GOOSE payload FDI detection
 
-#//Execution steps
+//---Execution steps
 Step 1: 
 a. Setup goose traffic generator VM: -Network setting->Bridged adaptor, ->allow all VMs, IP: 10.0.0.5/8
 
