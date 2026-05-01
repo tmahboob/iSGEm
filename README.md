@@ -27,16 +27,16 @@ CONTRIBUTIONS:
 Configuration: Modbus TCP server on raspberry_pi1(enp2s0),  Modbus TCP client on raspberry_pi2(enp3s0), CPN node (controller, scripts, uNFs installed on switch, non-ebpf function on dataplane processing pipeline)
 
 Requirements:
-* Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic
-* clang ver 18.1.3 thread posix
-* python 3.12.3
-*#use sudo for wireshark and commands, su not supported
+  * Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic
+  * clang ver 18.1.3 thread posix
+  * python 3.12.3
+  *#use sudo for wireshark and commands, su not supported
 
-* pip install vmdpy or GitHub lone https://github.com/vrcarv/vmdpy.git
-% # may need to run in virtual environment and file vmdp.py file in project folder where sniffer/modbusparser/fdi detection scripts are placed
+  * pip install vmdpy or GitHub lone https://github.com/vrcarv/vmdpy.git
+  % # may need to run in virtual environment and file vmdp.py file in project folder where sniffer/modbusparser/fdi detection scripts are placed
 
-* pip install tensorflow
-* pip install scikit-learn
+  * pip install tensorflow
+  * pip install scikit-learn
 
 1. Run the simulation to generate system state [V_b, I_b]
 
@@ -55,146 +55,26 @@ Requirements:
                 sudo ip link set dev veth4 up
 
 4. Setup the epbf_softswitch on interfaces
-   * sudo ~/BPFabric/softswitch/softswitch --dpid=1 --controller="127.0.0.1:9000" --promiscuous veth1 veth3 enp2s0 enp3s0 enp4s0
-   %enp2s0=raspberry_pi1(Modbus TCP server) enp3s0=respberry_pi2(Modbus TCP client)  
+     * sudo ~/BPFabric/softswitch/softswitch --dpid=1 --controller="127.0.0.1:9000" --promiscuous veth1 veth3 enp2s0 enp3s0 enp4s0
+       %enp2s0=raspberry_pi1(Modbus TCP server) enp3s0=respberry_pi2(Modbus TCP client)  
 
 5. Setup the controller: 'cd BPFabric/controller  
-  * ./cli.py' %Brokeragent.py
+     * ./cli.py' %Brokeragent.py
 
 6.Install script on the CPN switch: 
-  * 1 add 0 modbus_fwd ../examples/modbus_fwd.o 
+     * 1 add 0 modbus_fwd ../examples/modbus_fwd.o 
 
 7. Execute non-ebpf function 'FDI mitigator' at the CPN node in examples folder: cd BPFabric/examples
-   * python -m venv myenv
-   * source myenv/bin/activate
-   * sudo /myenv/bin/python Modbus_fwd_parser_fdi.py
-
+     * python -m venv myenv
+     * source myenv/bin/activate
+     * sudo /myenv/bin/python Modbus_fwd_parser_fdi.py
 
 8. Execute code on the raspberry_pi2
-    * setup virtual environment on raspberry pi:
-    * python -m venv myenv
-    * source myenv/bin/activate
-    * sudo /myenv/bin/python Modbus_server3.py
-
-
-************************************************************************************
-## Experiment 2: FDI detection on GOOSE 61850 measurements
-
-## June 19, 2025 update
-* Cite: Tahira Mahboob, Filip Holik, Awais Aziz Shah, and Dimitrios Pezaros, "Adaptive Learning Feature Quantization for In-network FDI Detection in IEC 61850 Digital Substations", accepted for publication, SmartGridComm'25 conference, Sep 29-Oct 2, 2025 Canada.
-************************************************************************************
-//configuration: GOOSE publisher VM on laptop(enp4s0), GOOSE subscriber raspberry_pi1(enp2s0), CPN node (controller, scripts, uNFs installed on switch,ebpf functions on dataplane processing pipeline)
-
-//Requirements:
--Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic
--clang ver 18.1.3 thread posix
--python 3.12.3
-%use sudo for wireshark and commands, su not supported
-
-
-//--- Softswitch
-sudo ~/BPFabric/softswitch/softswitch --dpid=1 --controller="127.0.0.1:9000" --promiscuous enp2s0 enp3s0 enp4s0
-
-// --- Controller
- ~/BPFabric/controller/cli.py
-1 add 0 FDI ../examples/fdiDT.o %GOOSE payload FDI detection
-
-//Execution steps
-
-Step 1: 
-a. Setup goose traffic generator VM:
--Network setting->Bridged adaptor, allow all VMs, IP: 10.0.0.5/8
-
-b. Generate GOOSE traffic using libiec61850-1.5.1 library. Goto folder '/mininet/libiec61850-1.5.1/examples/goose_publisher/' containing this library
-./CSVG enp2s0 XTest.csv % GOOSE payload data via simulation or csv file of features V and I measurement data 8 features
-
-
-
-# Experimentation:
-- Run the broker agent at the command line: python3 broker_agent.py
-- Run the mininet topology: python3 3sw_ctopo.py
-- xterm on host: xterm h1
-- setup wireshark on host interface
-- Run: ./IEC61850-1.5.1 *.csv % GOOSE traffic
-  Observe command line to view parsed traffic and execution times
-- Run: MetricsExtractor.csv %extract machine learning metrics
+     * setup virtual environment on raspberry pi:
+     * python -m venv myenv
+     * source myenv/bin/activate
+     * sudo /myenv/bin/python Modbus_server3.py
   
-
-![Experimental Setup](https://github.com/tmahboob/iSGEm/blob/main/experimentalsetup.jpg)
-An intelligent programmable data plane leveraging BPFabric
-
-Follow first example: A machine learning based FDI detection and mitigation on GOOSE traffic in IEC 61850 Digital secondary substation environment
-# Example: ML micro functions added in folder "examples"
--     eBPF-based Decision Tree mitigator micro service
--     eBPF-based Random Forest detection micro service
-  
-# Example: Broker agent at "\controller\core" folder
--    Userspace based FDI detection using Decision Tree and Random Forest 
-
-
-Main BPFabric guide (https://github.com/UofG-netlab/BPFabric/wiki/Running%20BPFabric)
-
-Contributor: Dr. Tahira Mahboob, tahira.mahboob@yahoo.com University of Glasgow, Scotland, UK
-
-******************************************************************************
-//Experiment 3: FDI detection on Power Systems State Estimations on Smart Grids
-******************************************************************************
-
-
-CONTRIBUTIONS:
-#Modbus TCP client/server traffic simulation, read multiple registers
-#Industrial commodity hardware--based test setup
-#Modelling a statistical FDI attack on PSSE
-#Bad data detection
-#Variational decomposition mode (VMD) based Intrinsic mode function--feature extraction via eBPF and non-eBPF functions
-#Scapy-based Modbus TCP payload parsing
-#LSTM Encoder Decoder implementation
-#FDI mitigation on PSSE
-#Non-eBPF and eBPF function chaining
-******************************************************************************
-
-//configuration: Modbus TCP server on raspberry_pi1(enp2s0), Modbus TCP client on raspberry_pi2(enp3s0), CPN node (controller, scripts, uNFs installed on switch, non-ebpf function on dataplane processing pipeline)
-
-//Requirements: -Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic -clang ver 18.1.3 thread posix -python 3.12.3 %use sudo for wireshark and commands, su not supported
-
--pip install vmdpy or GitHub lone https://github.com/vrcarv/vmdpy.git % may need to run in virtual environment and file vmdp.py file in project folder where sniffer/modbusparser/fdi detection scripts are placed
-
--pip install tensorflow -pip install scikit-learn
-
-Run the simulation to generate system state [V_b, I_b]
-
-Execute the Modbus TCP server script at raspberry pi1 setup virtual environment on raspberry pi: 
-
-python -m venv myenv source 
-myenv/bin/activate 
-sudo /myenv/bin/python ModbusClient_271.py
-
-#Setup the CPN node (Protecli or Topton N100 mini PC) 
-sudo ip link add veth1 type veth peer name veth2 
-sudo ip link add veth3 type veth peer name veth4 
-sudo ip link set dev veth1 up sudo ip link set dev veth2 up 
-sudo ip link set dev veth3 up sudo ip link set dev veth4 up
-
-#Setup the epbf_softswitch on interfaces 
-sudo ~/BPFabric/softswitch/softswitch --dpid=1 --controller="127.0.0.1:9000" --promiscuous veth1 veth3 enp2s0 enp3s0 enp4s0 
-%enp2s0 raspberry_pi1(Modbus TCP server) enp3s0=respberry_pi2(Modbus TCP client)
-
-4.Setup the controller: 'cd BPFabric/controller
-./cli.py' %Brokeragent.py
-
-5.Install script on the CPN switch: 1 add 0 modbus_fwd ../examples/modbus_fwd.o
-
-#Execute non-ebpf function 'FDI mitigator' at the CPN node in examples folder: 
-cd BPFabric/examples python -m venv myenv source 
-myenv/bin/activate 
-sudo /myenv/bin/python Modbus_fwd_parser_fdi.py
-
-#Execute code on the raspberry_pi2 setup virtual environment on raspberry pi: 
-python -m venv myenv source myenv/bin/activate sudo /myenv/bin/python Modbus_server3.py
-
-********************END: BPFabric eBPF Modbus experiment**********************
-
-
 
 ******************************************************************************
 
@@ -239,47 +119,69 @@ ryu-manager fdi_switch.py
 
 More details about installation: https://heltale.com/sdn/setting_up_ryu/ 
 
-***************END: SDN RYU controller experiment********************************
-
-*********************************************************************************
-
-# Experiment: FDI detection on GOOSE 61850 measurements June 19, 2025 update 
-
-# Cite: Tahira Mahboob, Filip Holik, Awais Aziz Shah, and Dimitrios Pezaros, "Adaptive Learning Feature Quantization for In-network 
-FDI Detection in IEC 61850 Digital Substations", https://eprints.gla.ac.uk/358810/, SmartGridComm'25 conference, Sep 29-Oct 2, 2025 Canada.
 
 
 
-* configuration: GOOSE publisher VM on laptop(enp4s0), GOOSE subscriber raspberry_pi1(enp2s0), CPN node (controller, scripts,
- uNFs installed on switch,ebpf functions on dataplane processing pipeline)
 
-//--- Requirements: 
-*Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN node 
-kernel 6.8.0-60-generic 
-*clang ver 18.1.3 thread posix -python 3.12.3 
-%use sudo for wireshark and commands, su not supported
-*********************************************************************************
+*************************************************************************************************************
+## Experiment 2: FDI detection on GOOSE 61850 measurements
 
+## June 19, 2025 update
+* Cite: T. Mahboob, F. Holik, A. A. Shah and D. Pezaros, "Adaptive Learning Feature Quantization for In-network FDI Detection in IEC 61850 Digital Substations," 2025 IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm), North York, ON, Canada, 2025, pp. 1-6, doi: 10.1109/SmartGridComm65349.2025.11204560.
 
-//--- Softswitch initialization
-sudo ~/BPFabric/softswitch/softswitch --dpid=1 --controller="127.0.0.1:9000" --promiscuous enp2s0 enp3s0 enp4s0
+keywords: {Training;Quantization (signal);Substations;Accuracy;Machine learning;Feature extraction;Smart grids;IEC Standards;Standards;Arithmetic;Kernel packet processing;extended Berkeley Packet Filter (eBPF);false data injections (FDI);machine learning (ML);post–training quantization (PTQ)},
+*************************************************************************************************************
+Configuration: GOOSE publisher VM on laptop(enp4s0), GOOSE subscriber raspberry_pi1(enp2s0), CPN node (controller, scripts, uNFs installed on switch,ebpf functions on dataplane processing pipeline)
 
-//--- Controller ~/BPFabric/controller/cli.py 1 add 0 FDI ../examples/fdiDT.o 
-%GOOSE payload FDI detection
-
-//---Execution steps
-Step 1: 
-a. Setup goose traffic generator VM: -Network setting->Bridged adaptor, ->allow all VMs, IP: 10.0.0.5/8
-
-b. Generate GOOSE traffic using libiec61850-1.5.1 library. 
-Goto folder '/mininet/libiec61850-1.5.1/examples/goose_publisher/' containing this library 
->>./CSVG enp2s0 XTest.csv 
-% GOOSE payload data via simulation or csv file of features V and I measurement data 8 features
+Requirements:
+- Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic
+- clang ver 18.1.3 thread posix
+- python 3.12.3
+  % # use sudo for wireshark and commands, su not supported
 
 
-******************END: GOOSE payload FDI detection****************************************************************************************
+--- Softswitch
+  * sudo ~/BPFabric/softswitch/softswitch --dpid=1 --controller="127.0.0.1:9000" --promiscuous enp2s0 enp3s0 enp4s0
 
-# MAIN Architecture
+--- Controller
+  * ~/BPFabric/controller/cli.py
+  * 1 add 0 FDI ../examples/fdiDT.o %GOOSE payload FDI detection
+
+Execution steps
+
+* Step 1: 
+   a. Setup goose traffic generator VM:
+       * Network setting->Bridged adaptor, allow all VMs, IP: 10.0.0.5/8
+
+  b. Generate GOOSE traffic using libiec61850-1.5.1 library. Goto folder '/mininet/libiec61850-1.5.1/examples/goose_publisher/' containing this    library
+       * ./CSVG enp2s0 XTest.csv % GOOSE payload data via simulation or csv file of features V and I measurement data 8 features
+
+## Experimentation:
+	- Run the broker agent at the command line: python3 broker_agent.py
+	- Run the mininet topology: python3 3sw_ctopo.py
+	- xterm on host: xterm h1
+	- setup wireshark on host interface
+	- Run: ./IEC61850-1.5.1 *.csv % GOOSE traffic
+	  Observe command line to view parsed traffic and execution times
+	- Run: MetricsExtractor.csv %extract machine learning metrics
+  
+
+![Experimental Setup](https://github.com/tmahboob/iSGEm/blob/main/experimentalsetup.jpg)
+An intelligent programmable data plane leveraging BPFabric
+
+Follow first example: A machine learning based FDI detection and mitigation on GOOSE traffic in IEC 61850 Digital secondary substation environment
+# Example: ML micro functions added in folder "examples"
+	-     eBPF-based Decision Tree mitigator micro service
+	-     eBPF-based Random Forest detection micro service
+  
+# Example: Broker agent at "\controller\core" folder
+	-    Userspace based FDI detection using Decision Tree and Random Forest 
+	
+
+*******************************************************************************************************************************
+Main BPFabric guide (https://github.com/UofG-netlab/BPFabric/wiki/Running%20BPFabric)
+*******************************************************************************************************************************
+# MAIN Architecture BPFABRIC
 
 # BPFabric - Netlab
 
