@@ -76,50 +76,50 @@ Requirements:
      * sudo /myenv/bin/python Modbus_server3.py
   
 
-******************************************************************************
-
+***************************************************************************************************************
 SDN experiment 4: Setting up RYU controller, where all Modbus TCP traffic forwarded to 
 the controller via openflow rules set up FDI detection and then mitigation logic 
 implemented at the RYU controller
-******************************************************************************
+***************************************************************************************************************
 
-1. PacketIn from switch to controller
-2. Call FDI script
-2.1. Parse packets to extract feature using scapy
-2.2. Create batch of packets
-2.3. Pass through VMD feature extractor
-2.4. Detect FDI on batch of packets
-2.5. Return Classification label '1' attack, '0' normal
-3. Drop packets at controller if label '1' otherwise packet_out packets via out_port ethernet port  
+* PacketIn from switch to controller
+* Call FDI script
+	* Parse packets to extract feature using scapy
+	* Create batch of packets
+	*. Pass through VMD feature extractor
+	* Detect FDI on batch of packets
+	* Return Classification label '1' attack, '0' normal
+* Drop packets at controller if label '1' otherwise packet_out packets via out_port ethernet port  
 *********************************************************************************
 
-# Setting up ovs rules at the switch
-* Experiment
-ethstats -n 2
+* Setting up ovs rules at the switch
 
-* Open vSwitch
-sudo ovs-vsctl show
-ip link show
+Experiment
+		* ethstats -n 2
 
-sudo ovs-vsctl del-br br0
-sudo ovs-vsctl add-br br0
-sudo ovs-vsctl add-port br0 enp2s0
-sudo ovs-vsctl add-port br0 enp3s0
-sudo ip link set dev enp2s0 up
-sudo ip link set dev enp3s0 up
+Open vSwitch
+        * sudo ovs-vsctl show
+        * ip link show
 
-sudo ovs-vsctl set-controller br0 tcp:192.168.10.1:6633
-(the switch is configured with 192.168.10.2) 
+		* sudo ovs-vsctl del-br br0
+		* sudo ovs-vsctl add-br br0
+		* sudo ovs-vsctl add-port br0 enp2s0
+		* sudo ovs-vsctl add-port br0 enp3s0
+		* sudo ip link set dev enp2s0 up
+		* sudo ip link set dev enp3s0 up
 
-*RYU SDN Controller
-pyenv activate ryu
-cd /home/otsentry/ryu/ryu/app/
-ryu-manager fdi_switch.py
-(default L2 switch): ryu-manager simple_switch_13.py
+        * sudo ovs-vsctl set-controller br0 tcp:192.168.10.1:6633
+              (the switch is configured with 192.168.10.2) 
+
+* RYU SDN Controller
+     * pyenv activate ryu
+     * cd /home/otsentry/ryu/ryu/app/
+     * ryu-manager fdi_switch.py
+           (default L2 switch): ryu-manager simple_switch_13.py
 
 More details about installation: https://heltale.com/sdn/setting_up_ryu/ 
 
-
+Cite: Mahboob, Tahira ORCID logo, Holik, Filip ORCID logo, Shah, Awais Aziz ORCID logo and Pezaros, Dimitrios ORCID logo (2026) Securing Smart Grids Against PSSE FDI Attacks. In: IEEE International Conference on Communications (IEEE ICC 2026), Glasgow, UK, 24-28 May 2026, (Accepted for Publication) Available: https://eprints.gla.ac.uk/378639/
 
 
 
