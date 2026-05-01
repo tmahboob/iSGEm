@@ -55,26 +55,26 @@ Requirements:
                 sudo ip link set dev veth4 up
 
 4. Setup the epbf_softswitch on interfaces
-sudo ~/BPFabric/softswitch/softswitch --dpid=1 --controller="127.0.0.1:9000" --promiscuous veth1 veth3 enp2s0 enp3s0 enp4s0
-%enp2s0=raspberry_pi1(Modbus TCP server) enp3s0=respberry_pi2(Modbus TCP client)  
+   * sudo ~/BPFabric/softswitch/softswitch --dpid=1 --controller="127.0.0.1:9000" --promiscuous veth1 veth3 enp2s0 enp3s0 enp4s0
+   %enp2s0=raspberry_pi1(Modbus TCP server) enp3s0=respberry_pi2(Modbus TCP client)  
 
-4.Setup the controller: 'cd BPFabric/controller  
-./cli.py' %Brokeragent.py
+5. Setup the controller: 'cd BPFabric/controller  
+  * ./cli.py' %Brokeragent.py
 
-5.Install script on the CPN switch: 
- 1 add 0 modbus_fwd ../examples/modbus_fwd.o 
+6.Install script on the CPN switch: 
+  * 1 add 0 modbus_fwd ../examples/modbus_fwd.o 
 
-6. Execute non-ebpf function 'FDI mitigator' at the CPN node in examples folder: cd BPFabric/examples
-python -m venv myenv
-source myenv/bin/activate
-sudo /myenv/bin/python Modbus_fwd_parser_fdi.py
+7. Execute non-ebpf function 'FDI mitigator' at the CPN node in examples folder: cd BPFabric/examples
+   * python -m venv myenv
+   * source myenv/bin/activate
+   * sudo /myenv/bin/python Modbus_fwd_parser_fdi.py
 
 
-7. Execute code on the raspberry_pi2
-setup virtual environment on raspberry pi:
-python -m venv myenv
-source myenv/bin/activate
-sudo /myenv/bin/python Modbus_server3.py
+8. Execute code on the raspberry_pi2
+    * setup virtual environment on raspberry pi:
+    * python -m venv myenv
+    * source myenv/bin/activate
+    * sudo /myenv/bin/python Modbus_server3.py
 
 
 ************************************************************************************
