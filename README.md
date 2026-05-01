@@ -77,7 +77,7 @@ Requirements:
   
 
 ***************************************************************************************************************
-SDN experiment 2: Setting up RYU controller, where all Modbus TCP traffic forwarded to the controller via openflow 
+# SDN experiment 2: Setting up RYU controller, where all Modbus TCP traffic forwarded to the controller via openflow 
 rules set up FDI detection and then mitigation logic implemented at the RYU controller
 ***************************************************************************************************************
 
@@ -121,7 +121,7 @@ rules set up FDI detection and then mitigation logic implemented at the RYU cont
 
 
 *************************************************************************************************************
-## Experiment 3: FDI detection on GOOSE 61850 measurements
+# Experiment 3: FDI detection on GOOSE 61850 measurements
 
 * Cite: T. Mahboob, F. Holik, A. A. Shah and D. Pezaros, "Adaptive Learning Feature Quantization for In-network FDI Detection in IEC 61850 Digital Substations," 2025 IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm), North York, ON, Canada, 2025, pp. 1-6, doi: 10.1109/SmartGridComm65349.2025.11204560.
 
@@ -175,7 +175,7 @@ Follow first example: A machine learning based FDI detection and mitigation on G
 	
 
 *******************************************************************************************************************************
-Main BPFabric guide (https://github.com/UofG-netlab/BPFabric/wiki/Running%20BPFabric)
+# Main BPFabric guide (https://github.com/UofG-netlab/BPFabric/wiki/Running%20BPFabric)
 *******************************************************************************************************************************
 # MAIN Architecture BPFABRIC
 
