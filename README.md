@@ -8,7 +8,7 @@ Contributor:
 
 
 ************************************************************************************
-# Experiment1: FDI detection on Power Systems State Estimations on Smart Grids
+# Experiment 1: FDI detection on Power Systems State Estimations on Smart Grids
 
 *************************************************************************************
 CONTRIBUTIONS:
@@ -61,7 +61,7 @@ Requirements:
 5. Setup the controller: 'cd BPFabric/controller  
      * ./cli.py' %Brokeragent.py
 
-6.Install script on the CPN switch: 
+6. Install script on the CPN switch: 
      * 1 add 0 modbus_fwd ../examples/modbus_fwd.o 
 
 7. Execute non-ebpf function 'FDI mitigator' at the CPN node in examples folder: cd BPFabric/examples
@@ -77,9 +77,8 @@ Requirements:
   
 
 ***************************************************************************************************************
-SDN experiment 4: Setting up RYU controller, where all Modbus TCP traffic forwarded to 
-the controller via openflow rules set up FDI detection and then mitigation logic 
-implemented at the RYU controller
+SDN experiment 2: Setting up RYU controller, where all Modbus TCP traffic forwarded to the controller via openflow 
+rules set up FDI detection and then mitigation logic implemented at the RYU controller
 ***************************************************************************************************************
 
 * PacketIn from switch to controller
@@ -94,10 +93,10 @@ implemented at the RYU controller
 
 * Setting up ovs rules at the switch
 
-Experiment
+* Experiment
 		* ethstats -n 2
 
-Open vSwitch
+* Open vSwitch
         * sudo ovs-vsctl show
         * ip link show
 		* sudo ovs-vsctl del-br br0
@@ -106,7 +105,6 @@ Open vSwitch
 		* sudo ovs-vsctl add-port br0 enp3s0
 		* sudo ip link set dev enp2s0 up
 		* sudo ip link set dev enp3s0 up
-
         * sudo ovs-vsctl set-controller br0 tcp:192.168.10.1:6633
               (the switch is configured with 192.168.10.2) 
 
@@ -123,7 +121,7 @@ Open vSwitch
 
 
 *************************************************************************************************************
-## Experiment 2: FDI detection on GOOSE 61850 measurements
+## Experiment 3: FDI detection on GOOSE 61850 measurements
 
 * Cite: T. Mahboob, F. Holik, A. A. Shah and D. Pezaros, "Adaptive Learning Feature Quantization for In-network FDI Detection in IEC 61850 Digital Substations," 2025 IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm), North York, ON, Canada, 2025, pp. 1-6, doi: 10.1109/SmartGridComm65349.2025.11204560.
 
@@ -151,10 +149,10 @@ Execution steps
    a. Setup goose traffic generator VM:
        * Network setting->Bridged adaptor, allow all VMs, IP: 10.0.0.5/8
 
-  b. Generate GOOSE traffic using libiec61850-1.5.1 library. Goto folder '/mininet/libiec61850-1.5.1/examples/goose_publisher/' containing this    library
+   b. Generate GOOSE traffic using libiec61850-1.5.1 library. Goto folder '/mininet/libiec61850-1.5.1/examples/goose_publisher/' containing this    library
        * ./CSVG enp2s0 XTest.csv % GOOSE payload data via simulation or csv file of features V and I measurement data 8 features
 
-## Experimentation:
+* Experimentation:
 	- Run the broker agent at the command line: python3 broker_agent.py
 	- Run the mininet topology: python3 3sw_ctopo.py
 	- xterm on host: xterm h1
@@ -168,12 +166,12 @@ Execution steps
 An intelligent programmable data plane leveraging BPFabric
 
 Follow first example: A machine learning based FDI detection and mitigation on GOOSE traffic in IEC 61850 Digital secondary substation environment
-# Example: ML micro functions added in folder "examples"
-	-     eBPF-based Decision Tree mitigator micro service
-	-     eBPF-based Random Forest detection micro service
+* Example: ML micro functions added in folder "examples"
+    * eBPF-based Decision Tree mitigator micro service
+	* eBPF-based Random Forest detection micro service
   
-# Example: Broker agent at "\controller\core" folder
-	-    Userspace based FDI detection using Decision Tree and Random Forest 
+* Example: Broker agent at "\controller\core" folder
+	* Userspace based FDI detection using Decision Tree and Random Forest 
 	
 
 *******************************************************************************************************************************
