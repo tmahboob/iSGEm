@@ -41,7 +41,7 @@ Requirements:
 1. Run the simulation to generate system state [V_b, I_b]
 
 2. Execute the Modbus TCP server script at raspberry pi1
-   * # setup virtual environment on raspberry pi:
+   * #setup virtual environment on raspberry pi:
    * python -m venv myenv
    * source myenv/bin/activate
    * sudo /myenv/bin/python ModbusClient_271.py
