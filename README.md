@@ -7,10 +7,12 @@ Contributor:
 - University of Glasgow March 2025
 
 
-************************************************************************************
+*************************************************************************************************************************
 # Experiment 1: FDI detection on Power Systems State Estimations on Smart Grids
 
-*************************************************************************************
+* Cite: Mahboob, Tahira ORCID logo, Holik, Filip ORCID logo, Shah, Awais Aziz ORCID logo and Pezaros, Dimitrios ORCID logo (2026) Securing Smart Grids Against PSSE FDI Attacks. In: IEEE International Conference on Communications (IEEE ICC 2026), Glasgow, UK, 24-28 May 2026, (Accepted for Publication) Available: https://eprints.gla.ac.uk/378639/
+
+**************************************************************************************************************************
 CONTRIBUTIONS:
 
 * Modbus TCP client/server traffic simulation, read multiple registers
@@ -116,7 +118,7 @@ rules set up FDI detection and then mitigation logic implemented at the RYU cont
 
 * More details about installation: https://heltale.com/sdn/setting_up_ryu/ 
 
-* Cite: Mahboob, Tahira ORCID logo, Holik, Filip ORCID logo, Shah, Awais Aziz ORCID logo and Pezaros, Dimitrios ORCID logo (2026) Securing Smart Grids Against PSSE FDI Attacks. In: IEEE International Conference on Communications (IEEE ICC 2026), Glasgow, UK, 24-28 May 2026, (Accepted for Publication) Available: https://eprints.gla.ac.uk/378639/
+
 
 
 
