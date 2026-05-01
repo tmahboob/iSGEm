@@ -100,7 +100,6 @@ Experiment
 Open vSwitch
         * sudo ovs-vsctl show
         * ip link show
-
 		* sudo ovs-vsctl del-br br0
 		* sudo ovs-vsctl add-br br0
 		* sudo ovs-vsctl add-port br0 enp2s0
@@ -117,16 +116,15 @@ Open vSwitch
      * ryu-manager fdi_switch.py
            (default L2 switch): ryu-manager simple_switch_13.py
 
-More details about installation: https://heltale.com/sdn/setting_up_ryu/ 
+* More details about installation: https://heltale.com/sdn/setting_up_ryu/ 
 
-Cite: Mahboob, Tahira ORCID logo, Holik, Filip ORCID logo, Shah, Awais Aziz ORCID logo and Pezaros, Dimitrios ORCID logo (2026) Securing Smart Grids Against PSSE FDI Attacks. In: IEEE International Conference on Communications (IEEE ICC 2026), Glasgow, UK, 24-28 May 2026, (Accepted for Publication) Available: https://eprints.gla.ac.uk/378639/
+* Cite: Mahboob, Tahira ORCID logo, Holik, Filip ORCID logo, Shah, Awais Aziz ORCID logo and Pezaros, Dimitrios ORCID logo (2026) Securing Smart Grids Against PSSE FDI Attacks. In: IEEE International Conference on Communications (IEEE ICC 2026), Glasgow, UK, 24-28 May 2026, (Accepted for Publication) Available: https://eprints.gla.ac.uk/378639/
 
 
 
 *************************************************************************************************************
 ## Experiment 2: FDI detection on GOOSE 61850 measurements
 
-## June 19, 2025 update
 * Cite: T. Mahboob, F. Holik, A. A. Shah and D. Pezaros, "Adaptive Learning Feature Quantization for In-network FDI Detection in IEC 61850 Digital Substations," 2025 IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm), North York, ON, Canada, 2025, pp. 1-6, doi: 10.1109/SmartGridComm65349.2025.11204560.
 
 keywords: {Training;Quantization (signal);Substations;Accuracy;Machine learning;Feature extraction;Smart grids;IEC Standards;Standards;Arithmetic;Kernel packet processing;extended Berkeley Packet Filter (eBPF);false data injections (FDI);machine learning (ML);post–training quantization (PTQ)},
