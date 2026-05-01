@@ -7,12 +7,12 @@ Contributor:
 - University of Glasgow March 2025
 
 
-*************************************************************************************************************************
+--------------------------------------------------------------------------------
 # Experiment 1: FDI detection on Power Systems State Estimations on Smart Grids
 
 * Cite: Mahboob, Tahira ORCID logo, Holik, Filip ORCID logo, Shah, Awais Aziz ORCID logo and Pezaros, Dimitrios ORCID logo (2026) Securing Smart Grids Against PSSE FDI Attacks. In: IEEE International Conference on Communications (IEEE ICC 2026), Glasgow, UK, 24-28 May 2026, (Accepted for Publication) Available: https://eprints.gla.ac.uk/378639/
 
-**************************************************************************************************************************
+--------------------------------------------------------------------------------
 CONTRIBUTIONS:
 
 * Modbus TCP client/server traffic simulation, read multiple registers
@@ -78,10 +78,10 @@ Requirements:
      * sudo /myenv/bin/python Modbus_server3.py
   
 
-***************************************************************************************************************
+--------------------------------------------------------------------------------
 # SDN experiment 2: Setting up RYU controller, where all Modbus TCP traffic forwarded to the controller via openflow 
 rules set up FDI detection and then mitigation logic implemented at the RYU controller
-***************************************************************************************************************
+--------------------------------------------------------------------------------
 
 * PacketIn from switch to controller
 * Call FDI script
@@ -91,7 +91,6 @@ rules set up FDI detection and then mitigation logic implemented at the RYU cont
 	* Detect FDI on batch of packets
 	* Return Classification label '1' attack, '0' normal
 * Drop packets at controller if label '1' otherwise packet_out packets via out_port ethernet port  
-*********************************************************************************
 
 * Setting up ovs rules at the switch
 
@@ -121,15 +120,17 @@ rules set up FDI detection and then mitigation logic implemented at the RYU cont
 
 
 
-
-*************************************************************************************************************
+--------------------------------------------------------------------------------
 # Experiment 3: FDI detection on GOOSE 61850 measurements
 
 * Cite: T. Mahboob, F. Holik, A. A. Shah and D. Pezaros, "Adaptive Learning Feature Quantization for In-network FDI Detection in IEC 61850 Digital Substations," 2025 IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm), North York, ON, Canada, 2025, pp. 1-6, doi: 10.1109/SmartGridComm65349.2025.11204560.
 
 keywords: {Training;Quantization (signal);Substations;Accuracy;Machine learning;Feature extraction;Smart grids;IEC Standards;Standards;Arithmetic;Kernel packet processing;extended Berkeley Packet Filter (eBPF);false data injections (FDI);machine learning (ML);post–training quantization (PTQ)},
-*************************************************************************************************************
-Configuration: GOOSE publisher VM on laptop(enp4s0), GOOSE subscriber raspberry_pi1(enp2s0), CPN node (controller, scripts, uNFs installed on switch,ebpf functions on dataplane processing pipeline)
+--------------------------------------------------------------------------------
+
+Configuration: 
+GOOSE publisher VM on laptop(enp4s0), GOOSE subscriber raspberry_pi1(enp2s0), 
+CPN node (controller, scripts, uNFs installed on switch, ebpf functions on dataplane processing pipeline)
 
 Requirements:
 - Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic
