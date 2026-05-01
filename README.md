@@ -26,11 +26,11 @@ CONTRIBUTIONS:
 
 Configuration: Modbus TCP server on raspberry_pi1(enp2s0),  Modbus TCP client on raspberry_pi2(enp3s0), CPN node (controller, scripts, uNFs installed on switch, non-ebpf function on dataplane processing pipeline)
 
-//Requirements:
-*Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic
-*clang ver 18.1.3 thread posix
-*python 3.12.3
-*use sudo for wireshark and commands, su not supported
+Requirements:
+* Linux lite 7.4 24.04 codename noble x86_64 GNU/Linux on CPN nodekernel 6.8.0-60-generic
+* clang ver 18.1.3 thread posix
+* python 3.12.3
+*#use sudo for wireshark and commands, su not supported
 
 *pip install vmdpy or GitHub lone https://github.com/vrcarv/vmdpy.git
 % may need to run in virtual environment and file vmdp.py file in project folder where sniffer/modbusparser/fdi detection scripts are placed
@@ -41,10 +41,10 @@ Configuration: Modbus TCP server on raspberry_pi1(enp2s0),  Modbus TCP client on
 1. Run the simulation to generate system state [V_b, I_b]
 
 2. Execute the Modbus TCP server script at raspberry pi1
-setup virtual environment on raspberry pi:
-python -m venv myenv
-source myenv/bin/activate
-sudo /myenv/bin/python ModbusClient_271.py
+   * # setup virtual environment on raspberry pi:
+   * python -m venv myenv
+   * source myenv/bin/activate
+   * sudo /myenv/bin/python ModbusClient_271.py
 
 3. Setup the CPN node (Protecli or Topton N100 mini PC)
 	        sudo ip link add veth1 type veth peer name veth2
