@@ -35,8 +35,8 @@ Requirements:
 * pip install vmdpy or GitHub lone https://github.com/vrcarv/vmdpy.git
 % # may need to run in virtual environment and file vmdp.py file in project folder where sniffer/modbusparser/fdi detection scripts are placed
 
-*pip install tensorflow
-*pip install scikit-learn
+* pip install tensorflow
+* pip install scikit-learn
 
 1. Run the simulation to generate system state [V_b, I_b]
 
