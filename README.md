@@ -125,7 +125,7 @@ rules set up FDI detection and then mitigation logic implemented at the RYU cont
 
 * Cite: T. Mahboob, F. Holik, A. A. Shah and D. Pezaros, "Adaptive Learning Feature Quantization for In-network FDI Detection in IEC 61850 Digital Substations," 2025 IEEE International Conference on Communications, Control, and Computing Technologies for Smart Grids (SmartGridComm), North York, ON, Canada, 2025, pp. 1-6, doi: 10.1109/SmartGridComm65349.2025.11204560.
 
-keywords: {Training;Quantization (signal);Substations;Accuracy;Machine learning;Feature extraction;Smart grids;IEC Standards;Standards;Arithmetic;Kernel packet processing;extended Berkeley Packet Filter (eBPF);false data injections (FDI);machine learning (ML);post–training quantization (PTQ)},
+  * keywords: {Training;Quantization (signal);Substations;Accuracy;Machine learning;Feature extraction;Smart grids;IEC Standards;Standards;Arithmetic;Kernel packet processing;extended Berkeley Packet Filter (eBPF);false data injections (FDI);machine learning (ML);post–training quantization (PTQ)},
 --------------------------------------------------------------------------------
 
 Configuration: 
